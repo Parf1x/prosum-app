@@ -1,0 +1,289 @@
+/* src/index.css */
+
+/* CSS Переменные */
+:root {
+  --primary-color: #4a90e2; /* Яркий синий для акцентов, кнопок */
+  --primary-color-hover: #357abd; /* Для hover основной кнопки */
+  --secondary-color: #4a90e2; /* Бирюзовый/Зеленоватый акцент для ссылок/кнопок */
+  
+  --background-color: #1a1a1d; /* Очень темный основной фон страницы */
+  --surface-color: #2c2f36;   /* Темно-серый для карточек, фона форм, футера */
+  --header-background-color: #111111; /* Еще темнее или черный для хедера */
+  
+  --text-color: #f5f5f7;       /* Основной светлый текст (почти белый) */
+  --text-color-secondary: #b0b8c4; /* Второстепенный, более тусклый светлый текст */
+  --text-on-primary: #ffffff;     /* Текст на основной цветной кнопке (обычно белый) */
+  --text-on-secondary-button-bg: #212529; /* Темный текст для кнопок с --text-color-secondary фоном */
+
+  --border-color: #40434E;   /* Основной цвет границ на темных поверхностях */
+  --header-border-color: #333333; /* Граница для хедера */
+  --footer-border-color: var(--border-color); /* Граница для футера */
+  --input-border-color: var(--border-color);
+  --input-focus-border-color: var(--primary-color);
+  --input-focus-box-shadow-color: rgba(74, 144, 226, 0.25);
+
+  --error-color: #e74c3c;
+  --error-background-color: rgba(231, 76, 60, 0.15);
+  --success-color: #2ecc71;
+
+  --font-family-main: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-lg: 1.125rem; /* 18px */
+
+  --line-height-base: 1.6;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --border-radius: 6px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --box-shadow-light: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Сброс стилей и базовые настройки */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--font-size-base); }
+body {
+  font-family: var(--font-family-main);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+}
+#root { flex-grow: 1; display: flex; flex-direction: column; }
+
+/* Общие стили для ссылок */
+a { color: var(--secondary-color); text-decoration: none; transition: color 0.2s ease-in-out; }
+a:hover { color: var(--primary-color); text-decoration: none; } 
+
+/* Общие стили для заголовков */
+h1, h2, h3, h4, h5, h6 { margin-bottom: var(--spacing-md); font-weight: var(--font-weight-semibold); line-height: 1.3; color: var(--text-color); }
+h1 { font-size: 2.25rem; } 
+h2 { font-size: 1.75rem; } 
+h3 { font-size: 1.5rem; }  
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; font-weight: var(--font-weight-medium); }
+
+/* Общие стили для параграфов */
+p { margin-bottom: var(--spacing-md); color: var(--text-color-secondary); }
+
+/* Общие стили для списков */
+ul, ol { margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); }
+li { margin-bottom: var(--spacing-sm); }
+
+/* Горизонтальная линия */
+hr { border: 0; border-top: 1px solid var(--border-color); margin: var(--spacing-lg) 0; }
+
+/* Общий контейнер для страниц */
+.page-container { width: 100%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: var(--spacing-lg) var(--spacing-xl); }
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ФОРМ --- */
+.form-card { margin-top: var(--spacing-lg); margin-bottom: var(--spacing-xl); padding: var(--spacing-lg) var(--spacing-xl); background-color: var(--surface-color); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+.form-title { margin-top: 0; margin-bottom: var(--spacing-lg); font-size: 1.6em; color: var(--text-color); text-align: center; font-weight: var(--font-weight-medium); }
+.form-group { margin-bottom: var(--spacing-lg); }
+.form-label { display: block; margin-bottom: var(--spacing-sm); font-weight: var(--font-weight-medium); color: var(--text-color-secondary); font-size: 0.95rem; }
+.form-control { display: block; width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-weight: var(--font-weight-normal); line-height: 1.5; color: var(--text-color); background-color: var(--background-color); background-clip: padding-box; border: 1px solid var(--input-border-color); border-radius: var(--border-radius); transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+.form-control::placeholder { color: var(--text-color-secondary); opacity: 0.7; }
+.form-control:focus { border-color: var(--input-focus-border-color); outline: 0; box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow-color); }
+textarea.form-control { min-height: 100px; resize: vertical; }
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ ФОРМ --- */
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КНОПОК --- */
+.btn { /* Базовый класс для всех кнопок */
+     display: inline-flex; 
+     align-items: center;
+     justify-content: center;
+     font-weight: var(--font-weight-medium);
+     line-height: 1.5;
+     color: var(--text-color);
+     text-align: center;
+     text-decoration: none;
+     vertical-align: middle;
+     cursor: pointer;
+     user-select: none;
+     background-color: var(--surface-highlight-color); 
+     border: 1px solid var(--border-color-light);
+     padding: 0.6rem 1.2rem; 
+     font-size: 0.95rem; 
+     border-radius: var(--border-radius);
+     transition: all .15s ease-in-out;
+ }
+.btn:hover:not(:disabled) { 
+     transform: translateY(-1px); 
+     box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+ }
+.btn:disabled {
+     opacity: 0.6; 
+     cursor: not-allowed !important;
+     background-color: var(--surface-color) !important; 
+     border-color: var(--border-color) !important;
+     color: var(--text-color-secondary) !important;
+ }
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); color: var(--text-on-primary); }
+.btn-primary:hover:not(:disabled) { background-color: var(--primary-color-hover); border-color: var(--primary-color-hover); }
+.btn-secondary { background-color: var(--text-color-secondary); border-color: var(--text-color-secondary); color: var(--text-on-secondary-button-bg); }
+.btn-secondary:hover:not(:disabled) { background-color: #9ba4ac; border-color: #9ba4ac; }
+.btn-danger { background-color: var(--error-color); border-color: var(--error-color); color: white; }
+.btn-danger:hover:not(:disabled) { background-color: #c82333; border-color: #bd2130; }
+.btn-success { background-color: var(--success-color); border-color: var(--success-color); color: white; }
+.btn-success:hover:not(:disabled) { background-color: #218838; border-color: #1e7e34; }
+.btn-sm { padding: var(--spacing-xs) var(--spacing-sm) !important; font-size: var(--font-size-sm) !important; line-height: 1.2 !important; }
+.btn-link-style { background-color: transparent !important; border-color: transparent !important; color: var(--secondary-color) !important; padding-left: var(--spacing-xs) !important; padding-right: var(--spacing-xs) !important; box-shadow: none !important; }
+.btn-link-style:hover { color: var(--primary-color) !important; text-decoration: underline !important; background-color: transparent !important; transform: none !important; box-shadow: none !important;}
+/* -------------------------------- */
+
+/* --- СТИЛИ ДЛЯ HEADER (ВАША ВЕРСИЯ) --- */ 
+.app-header {
+  background-color: var(--header-background-color); 
+  color: var(--header-text-color); 
+  padding: 1rem 0; /* Вернул ваш паддинг */
+  border-bottom: 1px solid var(--header-border-color);
+  position: sticky; top: 0; z-index: 1000; width: 100%;
+}
+.header-container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 0 var(--spacing-sm) 0 var(--spacing-sm); /* Вернул ваш паддинг */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+.app-header .logo { 
+  font-family: 'Raleway', sans-serif; 
+  font-size: 32px;                 
+  font-weight: 700;                
+  color: var(--header-text-color) !important; 
+  text-decoration: none; 
+  letter-spacing: 0.5px; 
+}
+.app-header .logo:hover { 
+  color: var(--primary-color) !important; 
+}
+.app-header nav { /* Добавил, если не было */
+  display: flex;
+  align-items: center;
+}
+.app-header nav a { 
+  color: var(--header-text-color) !important; 
+  text-decoration: none; 
+  margin-left: 20px; /* Вернул ваш марджин */
+  font-size: 0.95rem; 
+  font-weight: 500;   
+  padding: 8px 0; 
+  position: relative; 
+  transition: color 0.2s ease; 
+}
+.app-header nav a:hover { 
+  color: var(--header-link-hover-color) !important; 
+}
+.app-header nav a.active-nav-link { 
+  font-weight: 700; 
+  color: var(--header-active-link-color) !important; 
+}
+.app-header nav a.active-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--header-active-link-color);
+}
+.app-header .header-button {
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem; 
+    text-decoration: none;
+    margin-left: 20px; /* Вернул ваш марджин */
+    cursor: pointer;
+    line-height: 1.2;
+    border: 1px solid var(--header-text-color); 
+    background-color: transparent;
+    color: var(--header-text-color); 
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.app-header .header-button:hover {
+    background-color: var(--header-text-color);
+    color: var(--header-background-color); 
+}
+.app-header .header-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    background-color: transparent;
+    color: var(--text-color-secondary); 
+    border-color: var(--text-color-secondary);
+}
+.app-header .header-button-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important; /* Явно белый текст */
+    /* Наследует padding, font-size и т.д. от .header-button, если применить оба класса */
+}
+.app-header .header-button-primary:hover {
+    background-color: var(--primary-color-darker) !important;
+    border-color: var(--primary-color-darker) !important;
+}
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ HEADER --- */
+
+/* --- СТИЛИ ДЛЯ FOOTER --- */
+.app-footer { background-color: var(--footer-background-color); color: var(--footer-text-color); padding: var(--spacing-lg) 0; text-align: center; margin-top: auto; font-size: 0.9rem; border-top: 1px solid var(--footer-border-color); }
+.footer-container { max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-xl); }
+.app-footer p { margin: var(--spacing-xs) 0; }
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ FOOTER --- */
+
+/* --- СТИЛИ ДЛЯ КАРТОЧЕК --- */
+.card { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); box-shadow: var(--box-shadow); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+.cardHeader { margin-bottom: var(--spacing-md); }
+.cardHeader h3 { margin-top: 0; margin-bottom: var(--spacing-sm); font-size: 1.4rem; color: var(--text-color); }
+.cardHeader h3 a { color: var(--text-color); text-decoration: none; }
+.cardHeader h3 a:hover { text-decoration: underline; color: var(--primary-color-hover); }
+.cardBody { flex-grow: 1; }
+.cardBody p { margin-bottom: var(--spacing-sm); font-size: 0.95rem; color: var(--text-color-secondary); line-height: 1.5; }
+.cardBody p.description { min-height: 45px; margin-bottom: var(--spacing-md); }
+.cardFooter { margin-top: auto; padding-top: var(--spacing-md); border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: var(--spacing-sm); }
+.cardFooter .btn-card { padding: var(--spacing-sm) var(--spacing-md); font-size: var(--font-size-sm); margin-left: 0; }
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ КАРТОЧЕК --- */
+
+/* --- СТИЛИ ДЛЯ ProjectDetailPage --- */
+.project-detail-header { background-color: var(--surface-color); padding: var(--spacing-lg); border-radius: var(--border-radius); margin-bottom: var(--spacing-xl); box-shadow: var(--box-shadow); border: 1px solid var(--border-color); }
+.project-detail-name { font-size: 2.5em; margin-bottom: var(--spacing-sm); color: var(--text-color); font-weight: var(--font-weight-bold); }
+.project-detail-description { font-size: 1.05rem; color: var(--text-color-secondary); margin-bottom: var(--spacing-md); line-height: 1.7; }
+.project-detail-meta { font-size: 0.9em; color: var(--text-color-secondary); margin-bottom: var(--spacing-sm); }
+.project-detail-meta strong { color: var(--text-color); font-weight: var(--font-weight-medium); }
+.tasks-section-header { display: flex; justify-content: space-between; align-items: center; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-lg); padding-bottom: var(--spacing-md); border-bottom: 1px solid var(--border-color); }
+.tasks-section-title { font-size: 1.8em; color: var(--text-color); }
+.tasks-list { list-style: none; padding: 0; }
+.task-item { border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); background-color: var(--surface-highlight-color); box-shadow: var(--box-shadow-light); display: flex; flex-direction: column; justify-content: space-between; }
+.task-item-title { margin-top: 0; margin-bottom: var(--spacing-md); font-size: 1.35rem; color: var(--text-color); }
+.task-details-text { margin: var(--spacing-sm) 0; font-size: 1rem; color: var(--text-color-secondary); line-height: 1.5; }
+.task-details-text strong { font-weight: var(--font-weight-semibold); color: var(--text-color-secondary); }
+.task-participant-list { padding-left: 20px; list-style-type: disc; margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+.task-participant-list li { margin-bottom: var(--spacing-xs); color: var(--text-color-secondary); }
+.task-date-info { font-size: 0.85em; color: var(--text-color-secondary); margin-top: var(--spacing-sm); }
+.task-actions-footer { margin-top: var(--spacing-lg); padding-top: var(--spacing-md); border-top: 1px dashed var(--border-color); text-align: right; display: flex; justify-content: flex-end; gap: var(--spacing-sm); }
+.task-actions-footer .btn { margin-left: 0; }
+.participant-form-block { border: 1px dashed var(--border-color); padding: var(--spacing-md); margin-bottom: var(--spacing-md); border-radius: var(--border-radius); background-color: rgba(0,0,0,0.03); }
+.participant-form-title { margin-top: 0; margin-bottom: var(--spacing-md); font-size: 1.2em; font-weight: var(--font-weight-semibold); color: var(--text-color); }
+.btn-remove-participant { /* Этот класс используется ВМЕСТЕ с .btn, .btn-danger, .btn-sm */ margin-top: var(--spacing-sm) !important; margin-left: 0 !important; }
+.flex-row-layout { display: flex; gap: var(--spacing-lg); }
+.flex-child-item { flex: 1; }
+.error-message { color: var(--error-color); background-color: var(--error-background-color); border: 1px solid var(--error-color); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--border-radius); margin-bottom: var(--spacing-md); font-size: 0.9rem; text-align: center; }
+.loading-message { text-align: center; padding: var(--spacing-xl); font-size: 1.2em; color: var(--text-color-secondary); }
+.budget-summary-block { margin-top: var(--spacing-xl); padding: var(--spacing-lg); background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); text-align: center; font-size: 1.3em; font-weight: var(--font-weight-bold); color: var(--text-color); }
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ ProjectDetailPage --- */

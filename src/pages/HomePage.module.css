@@ -1,0 +1,83 @@
+/* src/pages/HomePage.module.css */
+.homePageContainer {
+    width: 100%;
+    /* Высота: делаем так, чтобы занимало оставшееся место после хедера и футера */
+    /* Это может потребовать flex-контейнера для App.js, чтобы main растягивался */
+    min-height: calc(100vh - 140px); /* Примерно: 100% высоты вьюпорта минус высота хедера и футера */
+    display: flex;
+    align-items: center; /* Центрируем контент по вертикали */
+    justify-content: flex-start; /* Контент слева */
+    position: relative; /* Для оверлея */
+    padding: 0; /* Убираем паддинги, если фон на всю ширину/высоту */
+    overflow: hidden; /* Чтобы фон не вылезал */
+  }
+  
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('D:\сайт 2\prosum\src\assets\images\{D005DD3F-D9FC-4ACA-9247-CE5AA3855C0E}.png'); /* <--- ЗАМЕНИТЕ НА ВАШ ПУТЬ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* Фон под оверлеем и контентом */
+  }
+  
+  .heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 29, 0.65); /* Полупрозрачный темный оверлей, подберите прозрачность */
+    z-index: 1;
+  }
+  
+  .heroContent {
+    position: relative; /* Чтобы контент был поверх оверлея */
+    z-index: 2;
+    color: var(--text-color, #ffffff); /* Используем переменную или белый по умолчанию */
+    padding: 20px 40px; /* Отступы для текстового блока */
+    max-width: 650px; /* Ограничиваем ширину текстового блока */
+    text-align: left;
+  }
+  
+  .heroContent h1 {
+    font-size: 2.8rem; /* Размер из вашего макета Figma (примерно 40-45px) */
+    font-weight: 700; /* Bold */
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+  
+  .featuresPreview {
+    margin-bottom: 35px;
+  }
+  
+  .featuresPreview p {
+    font-size: 1.1rem;
+    color: var(--text-color-secondary, #b0b0b0); /* Используем переменную */
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    background-color: var(--cta-background-color, #5cb85c); /* Используем переменную (зеленый) */
+    color: white;
+    padding: 14px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: var(--border-radius, 6px);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+    border: none;
+  }
+  
+  .ctaButton:hover {
+    background-color: var(--cta-background-color-hover, #4cae4c);
+    color: white; /* Убедимся, что цвет текста не меняется при наведении */
+    text-decoration: none;
+  }

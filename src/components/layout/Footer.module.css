@@ -1,0 +1,21 @@
+/* src/components/layout/Footer.module.css */
+.appFooter {
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    padding: 1.5rem 0; /* Отступы сверху/снизу */
+    text-align: center;
+    margin-top: auto; /* Прижимает футер к низу */
+    font-size: 0.9rem;
+    border-top: 1px solid var(--footer-border-color); /* Верхняя граница для отделения */
+  }
+  
+  .footerContainer {
+    max-width: 1100px; /* Соответствует .page-container и .header-container */
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+  
+  .appFooter p {
+    margin: 5px 0;
+    line-height: 1.4; /* Чуть улучшим читаемость */
+  }
