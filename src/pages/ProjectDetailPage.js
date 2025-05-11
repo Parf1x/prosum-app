@@ -264,7 +264,7 @@ function ProjectDetailPage() {
             ))}
             <button type="button" onClick={() => handleAddParticipantField('new')} className="btn btn-primary" style={{marginBottom: 'var(--spacing-md)'}}> + Добавить участника </button>
             {newParticipants.filter(p => p.fio && p.fio.trim()).length > 0 && (
-              <div className="form-group"> <label htmlFor="newLeadParticipant" className="form-label">Главный исполнитель на задаче:</label> <select id="newLeadParticipant" className="form-control" value={newLeadParticipantFIO} onChange={(e) => setNewLeadParticipantFIO(e.target.value)}> <option value="">Не выбран</option> {newParticipants.filter(p => p.fio && p.fio.trim()).map((p, idx) => ( <option key={`new-lead-${idx}`} value={p.fio}>{p.fio}</option> ))} </select> </div>
+              <div className="form-group"> <label htmlFor="newLeadParticipant" className="form-label">Главный исполнитель на задаче:</label> <select id="newLeadParticipant" className="form-control" value={newLeadParticipantFIO} onChange={(e) => setNewLeadParticipantFIO(e.target.value)}> <option value="">-Не выбран-</option> {newParticipants.filter(p => p.fio && p.fio.trim()).map((p, idx) => ( <option key={`new-lead-${idx}`} value={p.fio}>{p.fio}</option> ))} </select> </div>
             )}
             <hr/>
             <button type="submit" className="btn btn-success" disabled={addingTask}> {addingTask ? 'Добавление...' : 'Добавить задачу'} </button>
@@ -299,7 +299,7 @@ function ProjectDetailPage() {
                       ))}
                       <button type="button" onClick={() => handleAddParticipantField('edit')} className="btn btn-primary" style={{marginBottom: 'var(--spacing-md)'}}> + Добавить участника </button>
                        {editedParticipants.filter(p => p.fio && p.fio.trim()).length > 0 && (
-                        <div className="form-group"> <label htmlFor={`editLeadParticipant-${task.id}`} className="form-label">Главный исполнитель:</label> <select id={`editLeadParticipant-${task.id}`} className="form-control" value={editedLeadParticipantFIO} onChange={(e) => setEditedLeadParticipantFIO(e.target.value)}> <option value="">Не выбран</option> {editedParticipants.filter(p => p.fio && p.fio.trim()).map((p, idx) => ( <option key={`edit-lead-${idx}`} value={p.fio}>{p.fio}</option> ))} </select> </div>
+                        <div className="form-group"> <label htmlFor={`editLeadParticipant-${task.id}`} className="form-label">Главный исполнитель:</label> <select id={`editLeadParticipant-${task.id}`} className="form-control" value={editedLeadParticipantFIO} onChange={(e) => setEditedLeadParticipantFIO(e.target.value)}> <option value="">-Не выбран-</option> {editedParticipants.filter(p => p.fio && p.fio.trim()).map((p, idx) => ( <option key={`edit-lead-${idx}`} value={p.fio}>{p.fio}</option> ))} </select> </div>
                       )}
                       <hr/>
                       <div className="task-actions-footer"> <button className="btn btn-primary" onClick={() => handleSaveTask(task.id)} disabled={isSavingTask}> {isSavingTask ? 'Сохранение...' : 'Сохранить'} </button> <button className="btn btn-danger" onClick={handleCancelEditTask} disabled={isSavingTask}> Отмена </button> </div>

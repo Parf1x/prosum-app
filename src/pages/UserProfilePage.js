@@ -135,7 +135,7 @@ function UserProfilePage() {
               {nameStatus.error && <p className="error-message" style={{marginTop: 'var(--spacing-sm)'}}>{nameStatus.error}</p>}
               {nameStatus.success && <p style={{color: 'var(--success-color)', marginTop: 'var(--spacing-sm)', textAlign:'center'}}>{nameStatus.success}</p>}
               <div style={{display: 'flex', justifyContent: 'flex-end', gap: 'var(--spacing-sm)', marginTop: 'var(--spacing-md)'}}>
-                <button type="button" className="btn btn-secondary btn-sm" onClick={() => { setIsEditingName(false); setNewDisplayName(currentUser.displayName || ''); setNameStatus({error: '', success: '', loading: false}); }}>Отмена</button>
+                <button type="button" className="btn btn-danger btn-sm" onClick={() => { setIsEditingName(false); setNewDisplayName(currentUser.displayName || ''); setNameStatus({error: '', success: '', loading: false}); }}>Отмена</button>
                 <button type="submit" className="btn btn-primary btn-sm" disabled={nameStatus.loading}>{nameStatus.loading ? "Сохранение..." : "Сохранить имя"}</button>
               </div>
             </form>
