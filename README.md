@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+Prosum - Приложение для Планирования Бюджета Проектов
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Prosum - это веб-приложение, разработанное для помощи в планировании и отслеживании бюджета различных проектов. Оно позволяет пользователям создавать проекты, детализировать виды работ, назначать участников с указанием их плановых часов и ставок, а также отслеживать общую стоимость проекта.
 
-## Available Scripts
+ Ссылка на деплой:
 
-In the project directory, you can run:
+Вы можете ознакомиться с работающим приложением здесь: [https://prosum.netlify.app/](https://prosum.netlify.app/)
 
-### `npm start`
+ Используемые технологии
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   Фронтенд:
+    *   React (Create React App)
+    *   React Router DOM (для навигации)
+    *   Date-fns (для форматирования дат)
+    *   JavaScript (ES6+)
+    *   HTML5
+    *   CSS3 (с использованием CSS-переменных для темизации)
+*   Бэкенд и База Данных:
+    *   Firebase Authentication (для регистрации и аутентификации пользователей)
+    *   Firebase Firestore (NoSQL база данных для хранения проектов и задач)
+    *   Firebase Storage (если бы использовался для хранения файлов, например, аватарок)
+*   **Инструменты и Среда:**
+    *   Visual Studio Code (редактор кода)
+    *   Git и GitHub (система контроля версий и хостинг репозитория)
+    *   Node.js и npm (среда выполнения и менеджер пакетов)
+    *   ESLint (линтер для поддержания качества кода)
+    *   Jest и React Testing Library (для написания тестов)
+*   Деплой:
+    *   Netlify (для хостинга и автоматического деплоя из GitHub)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Возможности
 
-### `npm test`
+*   Регистрация и аутентификация пользователей с использованием Firebase.
+*   Создание проектов с названием и описанием.
+*   Редактирование данных существующих проектов.
+*   Удаление проектов (включая все связанные с ними задачи).
+*   Отображение списка всех проектов пользователя на панели управления.
+*   Поиск проектов по названию на панели управления.
+*   Сортировка проектов по названию или дате создания.
+*   Просмотр детальной информации о проекте.
+*   Управление задачами (видами работ) внутри проекта:
+    *   Добавление новых задач с указанием названия.
+    *   Назначение нескольких участников на одну задачу.
+    *   Указание *индивидуальных планируемых часов и часовой ставки для каждого участника по конкретной задаче.
+    *   Возможность указать главного (ответственного) исполнителя для задачи.
+    *   Редактирование данных существующей задачи, включая ее участников и главного исполнителя.
+    *   Удаление задач.
+    *   Возможность скрывать/показывать полный список участников для каждой задачи для удобства просмотра.
+*   Автоматический подсчет **стоимости каждой задачи** на основе данных ее участников.
+*   Автоматический подсчет и отображение **общего планируемого бюджета всего проекта**.
+*   Отображение **общего количества уникальных участников**, задействованных в проекте.
+*   Просмотр и базовое редактирование информации в профиле пользователя (имя, смена пароля, удаление аккаунта).
+*   Адаптивный дизайн (базовый, можно улучшать).
+*   Темная тема интерфейса.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Запуск проекта локально
 
-### `npm run build`
+Для запуска проекта на вашем локальном компьютере выполните следующие шаги:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Клонируйте репозиторий (если вы еще этого не сделали):**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    git clone https://github.com/Parf1x/prosum-app.git 
+    # Замените на URL вашего репозитория
+    cd prosum-app 
+    # Или просто cd prosum, если вы уже в папке проекта
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  **Установите зависимости:**
+    Убедитесь, что у вас установлен Node.js и npm.
+    
+    npm install
 
-### `npm run eject`
+4.  Настройте Firebase:
+    *   Создайте проект в [Firebase Console](https://firebase.google.com/).
+    *   Включите Authentication (метод Email/Password).
+    *   Включите Firestore Database (в тестовом режиме для начала).
+    *   (Если бы использовался Storage) Включите Storage.
+    *   Скопируйте конфигурационные ключи вашего Firebase проекта.
+    *   Создайте файл `src/firebase/config.js` (или, если вы используете переменные окружения, создайте файл `.env.local` в корне проекта).
+    *   Вставьте вашу конфигурацию Firebase:
+        
+        // src/firebase/config.js
+        import { initializeApp } from "firebase/app";
+        import { getAuth } from "firebase/auth";
+        import { getFirestore } from "firebase/firestore";
+        // import { getStorage } from "firebase/storage"; // Если нужен Storage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        const firebaseConfig = {
+          apiKey: "ВАШ_API_KEY",
+          authDomain: "ВАШ_AUTH_DOMAIN",
+          projectId: "ВАШ_PROJECT_ID",
+          storageBucket: "ВАШ_STORAGE_BUCKET", // Если нужен Storage
+          messagingSenderId: "ВАШ_MESSAGING_SENDER_ID",
+          appId: "ВАШ_APP_ID"
+        };
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        const app = initializeApp(firebaseConfig);
+        export const auth = getAuth(app);
+        export const db = getFirestore(app);
+        // export const storage = getStorage(app); // Если нужен Storage
+     
+        Или для `.env.local`:
+       
+        REACT_APP_FIREBASE_API_KEY=ВАШ_API_KEY
+        REACT_APP_FIREBASE_AUTH_DOMAIN=ВАШ_AUTH_DOMAIN
+        # и так далее...
+        
+        И убедитесь, что `src/firebase/config.js` читает эти переменные через `process.env`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5.  **Настройте правила безопасности Firestore:**
+    Скопируйте и опубликуйте правила из секции "Правила" (Rules) в вашей Firestore Database, которые мы обсуждали (разрешающие доступ к `projects` и `tasks` на основе `ownerId` / `projectOwnerId`).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6.  **Запустите приложение в режиме разработки:**
+    
+    npm start
+   
+    Или
+    
+    yarn start
+    
+    Приложение откроется в вашем браузере по адресу `http://localhost:3000`.
 
-## Learn More
+## Руководство к пользованию сайтом
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.  **Регистрация/Вход:**
+    *   Для начала работы с приложением необходимо зарегистрироваться, указав свое имя, email и пароль.
+    *   Если у вас уже есть аккаунт, воспользуйтесь формой входа.
+2.  **Панель управления (Dashboard):**
+    *   После входа вы попадаете на панель управления, где отображаются все созданные вами проекты.
+    *   Вы можете использовать поиск для фильтрации проектов по названию.
+    *   Проекты можно сортировать по названию или дате создания.
+    *   Для каждого проекта доступны кнопки "Редактировать" и "Удалить".
+    *   Есть кнопка "+ Создать новый проект".
+3.  **Создание проекта:**
+    *   Нажмите "+ Создать новый проект".
+    *   Введите название проекта и, по желанию, его описание.
+    *   Нажмите "Создать проект".
+4.  **Просмотр деталей проекта:**
+    *   На панели управления кликните на название проекта.
+    *   Откроется страница с детальной информацией о проекте (название, описание, даты, общее количество участников) и списком его задач.
+    *   Здесь вы можете добавлять, просматривать, редактировать и удалять задачи.
+    *   Отображается общий планируемый бюджет проекта.
+5.  **Работа с задачами (на странице деталей проекта):**
+    *   **Добавление задачи:** Нажмите кнопку "+ Добавить задачу". Введите название задачи. Для каждого участника, работающего над этой задачей, укажите его ФИО, планируемое количество часов и часовую ставку. Можно добавить несколько участников для одной задачи с помощью кнопки "+ Добавить участника" в форме. Выберите главного исполнителя для задачи из списка добавленных участников.
+    *   **Просмотр задач:** Задачи отображаются списком. Для каждой задачи видно ее название, главного исполнителя, список всех участников с их часами/ставками, общую стоимость задачи и дату добавления. Список участников можно скрыть/показать.
+    *   **Редактирование задачи:** Нажмите кнопку "Редактировать" рядом с задачей. Вы сможете изменить название задачи, а также добавить/удалить/изменить данные участников и переназначить главного исполнителя.
+    *   **Удаление задачи:** Нажмите кнопку "Удалить" рядом с задачей и подтвердите действие.
+6.  **Профиль пользователя:**
+    *   Перейдите на страницу "Профиль" через ссылку в шапке сайта.
+    *   Здесь отображается ваша информация (имя, email, UID).
+    *   Вы можете изменить свое отображаемое имя и пароль.
+    *   Также доступна функция удаления вашего аккаунта (будьте осторожны, это действие необратимо).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Автор
 
-### Code Splitting
+*   **Имя:** Parf1x
+*   **GitHub:** [https://github.com/Parf1x](https://github.com/Parf1x) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
