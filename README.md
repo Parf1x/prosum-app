@@ -100,7 +100,6 @@ Prosum - это веб-приложение, разработанное для �
        
         REACT_APP_FIREBASE_API_KEY=ВАШ_API_KEY
         REACT_APP_FIREBASE_AUTH_DOMAIN=ВАШ_AUTH_DOMAIN
-        # и так далее...
         
         И убедитесь, что `src/firebase/config.js` читает эти переменные через `process.env`.
 
