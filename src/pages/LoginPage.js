@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import './AuthForm.css'; // Убедитесь, что этот файл импортируется и содержит новые стили
+import './AuthForm.css'; 
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ function LoginPage() {
       }
       setLoading(false);
     }
-    // setLoading(false) не нужно здесь, т.к. либо navigate, либо setError+setLoading(false) в catch
+    
   };
 
   return (

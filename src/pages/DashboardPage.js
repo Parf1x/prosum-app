@@ -107,7 +107,7 @@ function DashboardPage() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="form-control"
-          style={{ flex: '1 1 300px', minWidth: '250px' }} // ИСПРАВЛЕНО: Удален ошибочный текст
+          style={{ flex: '1 1 300px', minWidth: '250px' }} 
         />
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
           <span>Сортировать по:</span>
@@ -142,7 +142,7 @@ function DashboardPage() {
               </div>
               <div className="cardFooter">
                 <Link 
-                  to={`/project/${project.id}/edit`} // Убедитесь, что эта ссылка правильная
+                  to={`/project/${project.id}/edit`} 
                   className="btn btn-card" 
                   style={{backgroundColor: 'var(--secondary-color)', color: 'white', borderColor: 'var(--secondary-color)'}}
                 >

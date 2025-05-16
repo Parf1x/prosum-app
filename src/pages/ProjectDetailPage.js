@@ -11,7 +11,7 @@ import {
 } from '../firebase/services';
 import { format } from 'date-fns';
 
-// Предполагается, что стили будут браться из глобального index.css через классы
+//  стили будут браться из глобального index.css через классы
 
 function ProjectDetailPage() {
   const { projectId } = useParams();
@@ -125,7 +125,7 @@ function ProjectDetailPage() {
     if (leadFIO && !validatedParticipants.some(p => p.fio === leadFIO)) {
       setAddTaskError("Выбранный главный участник должен быть в списке участников задачи с корректными данными."); return;
     }
-    // Удален блок: if (validatedParticipants.length > 0 && !leadFIO && validatedParticipants[0].fio) { leadFIO = validatedParticipants[0].fio; }
+    
     
     if (!isOwner || !currentUser?.uid) { setAddTaskError(!isOwner ? "Нет прав." : "Ошибка пользователя."); return; }
     setAddingTask(true); setAddTaskError('');
@@ -171,7 +171,7 @@ function ProjectDetailPage() {
     if (leadFIO && !validatedEditedParticipants.some(p => p.fio === leadFIO)) {
       setEditingError("Выбранный главный участник должен быть в списке участников задачи с корректными данными."); return;
     }
-    // Удален блок: if (validatedEditedParticipants.length > 0 && !leadFIO && validatedEditedParticipants[0].fio) { leadFIO = validatedEditedParticipants[0].fio; }
+    
     
     if (!isOwner) { setEditingError("Нет прав."); return; }
     setIsSavingTask(true); setEditingError('');

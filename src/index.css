@@ -4,7 +4,7 @@
 :root {
   --primary-color: #4a90e2; /* Яркий синий для акцентов, кнопок */
   --primary-color-hover: #357abd; /* Для hover основной кнопки */
-  --secondary-color: #4a90e2; /* Бирюзовый/Зеленоватый акцент для ссылок/кнопок */
+  --secondary-color: #4a90e2; /* Синий/Зеленоватый акцент для ссылок/кнопок */
   
   --background-color: #1a1a1d; /* Очень темный основной фон страницы */
   --surface-color: #2c2f36;   /* Темно-серый для карточек, фона форм, футера */
@@ -146,18 +146,18 @@ textarea.form-control { min-height: 100px; resize: vertical; }
 .btn-link-style:hover { color: var(--primary-color) !important; text-decoration: underline !important; background-color: transparent !important; transform: none !important; box-shadow: none !important;}
 /* -------------------------------- */
 
-/* --- СТИЛИ ДЛЯ HEADER (ВАША ВЕРСИЯ) --- */ 
+/* --- СТИЛИ ДЛЯ HEADER  --- */ 
 .app-header {
   background-color: var(--header-background-color); 
   color: var(--header-text-color); 
-  padding: 1rem 0; /* Вернул ваш паддинг */
+  padding: 1rem 0; 
   border-bottom: 1px solid var(--header-border-color);
   position: sticky; top: 0; z-index: 1000; width: 100%;
 }
 .header-container { 
   max-width: 1100px; 
   margin: 0 auto; 
-  padding: 0 var(--spacing-sm) 0 var(--spacing-sm); /* Вернул ваш паддинг */
+  padding: 0 var(--spacing-sm) 0 var(--spacing-sm); 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 

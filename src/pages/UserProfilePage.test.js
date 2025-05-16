@@ -1,6 +1,6 @@
 // src/pages/UserProfilePage.test.js
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react'; // Добавил fireEvent для будущих тестов кнопок
+import { render, screen, fireEvent } from '@testing-library/react'; //  fireEvent для будущих тестов кнопок
 import '@testing-library/jest-dom';
 import UserProfilePage from './UserProfilePage';
 import { AuthContext } from '../contexts/AuthContext';
@@ -33,8 +33,7 @@ describe('UserProfilePage Component', () => {
   beforeEach(() => {
     // Сбрасываем вызовы моков перед каждым тестом
     mockNavigate.mockClear();
-    // Если у вас моки для функций AuthContext, их тоже можно сбрасывать здесь
-    // mockAuthContextValue().updateUserDisplayName.mockClear(); // и т.д.
+    
   });
 
   test('renders user information when user is logged in', () => {
@@ -71,7 +70,5 @@ describe('UserProfilePage Component', () => {
     expect(screen.getByText((content, element) => content.startsWith('Имя в системе:') && content.includes('Не указано'))).toBeInTheDocument();
   });
 
-  // Добавим тест для кнопки удаления, чтобы проверить вызов navigate
-  // Этот тест будет более сложным, так как требует имитации window.confirm
-  // и асинхронных операций. Пока оставим его для следующего шага, если захотите.
+ 
 });

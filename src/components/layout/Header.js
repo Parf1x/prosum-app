@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-// Убедитесь, что index.css импортируется глобально
+
 
 function Header() {
   const { currentUser, logout } = useAuth();
@@ -31,7 +31,7 @@ function Header() {
     borderColor: 'var(--primary-color, #4a90e2)', // Синяя рамка
     borderWidth: '1px',
     borderStyle: 'solid',
-    marginLeft: 'var(--spacing-lg, 24px)', // Увеличенный отступ слева (убедитесь, что --spacing-lg определена в :root)
+    marginLeft: 'var(--spacing-lg, 24px)', // Увеличенный отступ слева 
     padding: '0.5rem 1rem', // Стандартный паддинг кнопки, чтобы текст был по центру
     fontSize: '0.9rem',     // Стандартный размер шрифта кнопки
     borderRadius: 'var(--border-radius, 6px)', // Стандартное скругление

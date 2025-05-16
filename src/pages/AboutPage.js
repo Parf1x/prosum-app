@@ -1,7 +1,7 @@
 // src/pages/AboutPage.js
 import React from 'react';
 
-// --- SVG Иконки (можно вынести в отдельный файл или библиотеку) ---
+//SVG Иконки
 const MissionIcon = ({ size = 28, color = 'currentColor' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path> {/* Щит */}
@@ -20,7 +20,7 @@ const FutureIcon = ({ size = 28, color = 'currentColor' }) => (
     <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path> {/* Стрелка вправо */}
   </svg>
 );
-// --------------------------------------------------------------------
+
 
 function AboutPage() {
   const contentCardStyle = {
@@ -59,7 +59,7 @@ function AboutPage() {
   const sectionTitleStyle = {
     display: 'flex', // Для иконки и текста в ряд
     alignItems: 'center',
-    color: 'var(--secondary-color, #50e3c2)', // Акцентный цвет (бирюзовый) для подзаголовков
+    color: 'var(--secondary-color, #50e3c2)', 
     fontSize: '1.9rem', // Сделаем крупнее
     marginBottom: 'var(--spacing-lg, 24px)', // Больше отступ под заголовком секции
     fontWeight: 'var(--font-weight-semibold, 600)',
@@ -88,9 +88,9 @@ function AboutPage() {
     lineHeight: 1.7,
   };
 
-  // Стиль для псевдоэлемента-маркера списка (можно использовать SVG или символ)
+  // Стиль для псевдоэлемента-маркера списка 
   const listItemBeforeStyle = {
-    content: '"✓"', // Галочка (можно заменить на SVG или другую иконку)
+    content: '"✓"', // Галочка 
     position: 'absolute',
     left: '0',
     top: '4px', // Подберите позицию
@@ -98,7 +98,7 @@ function AboutPage() {
     fontWeight: 'var(--font-weight-bold, 700)',
     fontSize: '1.1em',
   };
-  // Если не хотите псевдоэлементы, можно просто добавить <li><span>✔ </span> Текст</li>
+  
 
   const strongTextStyle = {
     color: 'var(--text-color, #f5f5f7)', // Выделенный текст делаем ярче
@@ -132,8 +132,8 @@ function AboutPage() {
             <h2 style={sectionTitleStyle}><span style={iconStyle}><WhyIcon color="var(--secondary-color)" /></span>Почему Prosum?</h2>
             <ul style={listStyle}>
               <li style={listItemStyle}>
-                {/* Можно добавить псевдоэлемент ::before к li для кастомных маркеров */}
-                <span style={listItemBeforeStyle}></span> {/* Или так, если не хотите CSS псевдоэлемент */}
+
+                <span style={listItemBeforeStyle}></span> 
                 <strong style={strongTextStyle}>Детальное планирование:</strong> Разбивайте проекты на этапы (виды работ), 
                 назначайте участников, указывайте их плановые часы и индивидуальные ставки.
               </li>

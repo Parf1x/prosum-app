@@ -147,7 +147,7 @@ function UserProfilePage() {
             <span style={{color: 'var(--text-color)', wordBreak: 'break-word'}}>{currentUser.email}</span>
           </div>
          
-          <div className="form-group" style={{display: 'flex', alignItems: 'center', paddingTop: 'var(--spacing-sm)'}}> {/* Убрал нижнюю границу у последнего элемента */}
+          <div className="form-group" style={{display: 'flex', alignItems: 'center', paddingTop: 'var(--spacing-sm)'}}> 
             <span style={{marginRight: 'var(--spacing-md)', color: 'var(--text-color-secondary)'}}><IdCardIcon /></span>
             <span className="form-label" style={{marginBottom: 0, marginRight: 'var(--spacing-sm)', minWidth: '112px'}}>User ID:</span>
             <span style={{color: 'var(--text-color)', wordBreak: 'break-word', fontSize: '0.9em'}}>{currentUser.uid}</span>
@@ -185,7 +185,7 @@ function UserProfilePage() {
         
         {/* Секция удаления аккаунта */}
         <section style={{marginTop: 'var(--spacing-xl)', paddingTop: 'var(--spacing-lg)', borderTop: '1px solid var(--border-color)', textAlign: 'center'}}>
-            {/* УДАЛЕН ЗАГОЛОВОК H3 "УДАЛЕНИЕ АККАУНТА" */}
+            
             <p style={{fontSize: '0.9em', marginBottom: 'var(--spacing-md)', color: 'var(--text-color-secondary)'}}>
                 Внимание! Это действие необратимо и приведет к удалению всех ваших данных.
             </p>

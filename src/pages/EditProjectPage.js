@@ -42,7 +42,7 @@ function EditProjectPage() {
       setError("Не удалось загрузить данные проекта.");
     }
     setLoadingData(false);
-  }, [projectId, currentUser]); // Убрал navigate, если он не используется для редиректа при ошибке загрузки
+  }, [projectId, currentUser]); 
 
   useEffect(() => {
     fetchProject();
@@ -81,7 +81,7 @@ function EditProjectPage() {
   // И форма не должна отображаться
   if (error || !originalProjectData || (originalProjectData && originalProjectData.ownerId !== currentUser?.uid)) {
       return (
-          <div className="page-container" style={{textAlign: 'center'}}> {/* Добавил textAlign: 'center' для page-container */}
+          <div className="page-container" style={{textAlign: 'center'}}> 
               <h2 style={{marginBottom: '25px'}}>Редактировать Проект</h2>
               <p className="error-message" style={{color: 'var(--error-color)'}}>{error || 'Данные проекта недоступны или у вас нет прав.'}</p>
               <button 
@@ -131,7 +131,7 @@ function EditProjectPage() {
             className="btn"
             onClick={() => navigate(-1)} // Кнопка "Назад"
             disabled={updating}
-            // Стили для кнопки "Отмена", можно использовать переменные или специфичный класс
+            // Стили для кнопки "Отмена"
             style={{
               backgroundColor: 'var(--error-color)', // <--- ЗАДАЕМ КРАСНЫЙ ФОН
               color: 'white',                         // <--- ТЕКСТ ДЕЛАЕМ БЕЛЫМ для контраста

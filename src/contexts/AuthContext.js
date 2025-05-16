@@ -8,9 +8,9 @@ import {
   onAuthStateChanged,
   updateProfile,
   updatePassword,        // Для смены пароля
-  deleteUser,            // <--- ДЛЯ УДАЛЕНИЯ ПОЛЬЗОВАТЕЛЯ
-  // reauthenticateWithCredential, // Может понадобиться для deleteUser или updatePassword
-  // EmailAuthProvider,            // Для reauthenticateWithCredential
+  deleteUser,            // ДЛЯ УДАЛЕНИЯ ПОЛЬЗОВАТЕЛЯ
+  
+  
 } from 'firebase/auth';
 
 const AuthContext = React.createContext();
@@ -56,10 +56,7 @@ export function AuthProvider({ children }) {
 
   async function updateUserPassword(newPassword) {
     if (auth.currentUser) {
-      // ВАЖНО: Firebase может потребовать недавнюю аутентификацию для этой операции.
-      // Если возникает ошибка auth/requires-recent-login, нужно будет реализовать
-      // reauthenticateWithCredential(currentUser, EmailAuthProvider.credential(currentUser.email, currentPassword))
-      // перед вызовом updatePassword.
+      
       await updatePassword(auth.currentUser, newPassword);
       return auth.currentUser;
     } else {
@@ -70,13 +67,10 @@ export function AuthProvider({ children }) {
   // --- НОВАЯ ФУНКЦИЯ ДЛЯ УДАЛЕНИЯ АККАУНТА ---
   async function deleteCurrentUserAccount() {
     if (auth.currentUser) {
-      // ВАЖНО: Эта операция также является чувствительной и может потребовать
-      // недавней аутентификации (reauthentication), как и смена пароля.
-      // Если возникает ошибка auth/requires-recent-login, потребуется reauthentication.
+      
       try {
         await deleteUser(auth.currentUser);
-        // После успешного удаления, currentUser станет null через onAuthStateChanged,
-        // и приложение должно будет перенаправить пользователя (например, на страницу входа или главную).
+       
         console.log("Аккаунт пользователя успешно удален.");
       } catch (error) {
         console.error("Ошибка при удалении аккаунта:", error);
@@ -86,8 +80,7 @@ export function AuthProvider({ children }) {
       throw new Error("Нет активного пользователя для удаления аккаунта.");
     }
   }
-  // ----------------------------------------------
-
+ 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -98,14 +91,14 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
-    setCurrentUser, // Оставим, если используется для обновления аватара на клиенте
+    setCurrentUser, 
     loading,
     signup,
     login,
     logout,
     updateUserDisplayName,
     updateUserPassword,
-    deleteCurrentUserAccount, // <--- ДОБАВЛЯЕМ В КОНТЕКСТ
+    deleteCurrentUserAccount, 
   };
 
   return (

@@ -1,5 +1,5 @@
 // src/firebase/services.js
-import { db } from './config'; // Ваш файл конфигурации Firebase, где экспортируется db
+import { db } from './config'; // файл конфигурации Firebase, где экспортируется db
 import {
   collection,   // Для ссылки на коллекцию
   addDoc,       // Для добавления нового документа (Create)
@@ -63,7 +63,7 @@ export const deleteProjectAndTasks = async (projectId) => {
     }
 };
 
-// --- Функции для коллекции Tasks --- (ВОТ СЮДА ВСТАВЛЯЕМ НОВЫЙ КОД)
+// --- Функции для коллекции Tasks 
 const tasksCollectionRef = collection(db, 'tasks'); // Ссылка на коллекцию 'tasks'
 
 /**

@@ -1,14 +1,14 @@
 /* src/pages/AuthForm.css */
-.authFormContainer { /* Изменил имя класса для ясности */
+.authFormContainer { 
     display: flex;
     flex-direction: column; /* Чтобы форма и возможные сообщения были друг под другом */
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 140px); /* Высота вьюпорта минус хедер и футер (примерно) */
+    min-height: calc(100vh - 140px); 
     padding: 40px 20px;
   }
   
-  .authForm { /* Изменил имя класса */
+  .authForm { 
     background-color: var(--surface-color); /* Используем цвет поверхности для фона формы */
     padding: 30px 40px;
     border-radius: var(--border-radius);
@@ -25,26 +25,25 @@
     font-size: 1.8rem;
   }
   
-  .formGroup { /* Используем тот же класс, что и в index.css или определим здесь */
+  .formGroup { 
     margin-bottom: 20px;
   }
   
-  .formGroup label { /* Используем тот же класс, что и в index.css или определим здесь */
+  .formGroup label { 
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
     color: var(--text-color-secondary); /* Светло-серый для меток */
   }
   
-  /* Используем глобальный .form-control из index.css для инпутов, если он подходит,
-     или создаем специфичные стили здесь, если нужно переопределить */
+  
   .authForm input[type="text"],
   .authForm input[type="email"],
   .authForm input[type="password"] {
-    /* Наследуем стили из .form-control (глобального) или определяем здесь: */
+    
     display: block;
     width: 100%;
-    padding: 0.6rem 0.85rem; /* Немного изменил паддинги */
+    padding: 0.6rem 0.85rem; /* изменил паддинги */
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -60,13 +59,13 @@
   .authForm input[type="password"]:focus {
     border-color: var(--primary-color);
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.35); /* Немного изменил прозрачность */
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.35); /* прозрачность */
   }
   
   
-  .buttonSubmit { /* Изменил имя класса */
+  .buttonSubmit { 
     width: 100%;
-    padding: 0.75rem 1rem; /* Увеличил паддинги */
+    padding: 0.75rem 1rem; 
     background-color: var(--primary-color); /* Основной синий */
     color: white;
     border: none;
@@ -86,7 +85,7 @@
     cursor: not-allowed;
   }
   
-  .errorMessage { /* Изменил имя класса */
+  .errorMessage { 
     color: var(--error-color);
     background-color: rgba(231, 76, 60, 0.1); /* Полупрозрачный фон ошибки */
     border: 1px solid var(--error-color);
@@ -97,14 +96,14 @@
     font-size: 0.9rem;
   }
   
-  .switchFormLink { /* Изменил имя класса */
+  .switchFormLink { 
     text-align: center;
-    margin-top: 25px; /* Увеличил отступ */
+    margin-top: 25px; /* отступ */
     font-size: 0.95rem;
   }
   
   .switchFormLink a {
-    color: var(--secondary-color); /* Бирюзовый акцент для ссылки */
+    color: var(--secondary-color); 
     text-decoration: none;
     font-weight: 500;
   }

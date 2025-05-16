@@ -8,12 +8,12 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-// Импорты для защищенных страниц (пока заглушки)
-import DashboardPage from './pages/DashboardPage'; // Создайте заглушку
-import ProjectDetailPage from './pages/ProjectDetailPage'; // Создайте заглушку
-import CreateProjectPage from './pages/CreateProjectPage'; // Создайте заглушку
-import EditProjectPage from './pages/EditProjectPage'; // Создайте заглушку
-import UserProfilePage from './pages/UserProfilePage'; // Создайте заглушку
+// Импорты для защищенных страниц 
+import DashboardPage from './pages/DashboardPage'; 
+import ProjectDetailPage from './pages/ProjectDetailPage'; 
+import CreateProjectPage from './pages/CreateProjectPage'; 
+import EditProjectPage from './pages/EditProjectPage'; 
+import UserProfilePage from './pages/UserProfilePage'; 
 
 // Импорт компонентов макета
 import Header from './components/layout/Header';

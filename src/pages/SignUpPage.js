@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import './AuthForm.css'; // Убедитесь, что этот файл импортируется и содержит новые стили
+import './AuthForm.css'; 
 
 function SignUpPage() {
   const [displayName, setDisplayName] = useState('');
@@ -16,7 +16,7 @@ function SignUpPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!displayName.trim()) { // Добавил проверку на пустое имя
+    if (!displayName.trim()) { // проверка на пустое имя
         return setError('Пожалуйста, укажите ваше имя или никнейм.');
     }
     if (password !== confirmPassword) {
